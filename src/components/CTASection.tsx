@@ -58,24 +58,24 @@ export default function CTASection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-5"
+          className="flex flex-wrap justify-center gap-4 sm:gap-5"
         >
           {primaryCta && (
             <Link
               href={primaryCta.href}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary font-semibold rounded-xl hover:bg-gray-100 transition-all duration-200 group"
+              className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 py-3.5 sm:px-8 sm:py-4 min-h-[48px] bg-white text-primary font-semibold rounded-xl hover:bg-gray-100 transition-all duration-200 group"
             >
-              {primaryCta.text}
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <span className="text-center">{primaryCta.text}</span>
+              <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform" />
             </Link>
           )}
           {secondaryCta && (
             <Link
               href={secondaryCta.href}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-200 border border-white/20"
+              className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 py-3.5 sm:px-8 sm:py-4 min-h-[48px] bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-200 border border-white/20"
             >
-              <Phone className="w-5 h-5" />
-              {secondaryCta.text}
+              <Phone className="w-5 h-5 shrink-0" />
+              <span className="text-center">{secondaryCta.text}</span>
             </Link>
           )}
         </motion.div>

@@ -54,32 +54,37 @@ This website showcases the services offered by Matt Driver, a Premier League aca
    npm install
    ```
 
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
+### Development server
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Run the dev server (with hot reload):
 
-### Build for Production
+```bash
+npm run dev
+```
+
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Build for production
 
 ```bash
 npm run build
 npm start
 ```
 
-## Deployment
+## Vercel deployment
 
-This project is configured for deployment on Vercel:
+The project is set up for Vercel:
 
-1. Push to your GitHub repository
-2. Import the project in Vercel
-3. Deploy automatically
+1. Push to your GitHub repository and connect the repo in [Vercel](https://vercel.com).
+2. Vercel will detect Next.js and use the existing config.
+3. Deployments run on each push; `npm run build` is used automatically.
 
-The `vercel.json` file includes:
-- Optimised headers for caching static assets
-- Security headers
-- Region configuration (London)
+**`vercel.json`** config includes:
+
+- **Framework**: `nextjs`
+- **Region**: `lhr1` (London)
+- **Security headers**: `X-Content-Type-Options`, `X-Frame-Options`, `X-XSS-Protection`, `Referrer-Policy`
+- **Cache headers**: long cache for `/images/*` and `/videos/*`
 
 ## Project Structure
 

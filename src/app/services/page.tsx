@@ -188,12 +188,12 @@ export default function ServicesPage() {
       />
 
       {/* Services Overview */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <SectionHeader
-            label="What We Offer"
-            title="Services Tailored To Your Goals"
-            description="From comprehensive athletic assessments to personalised training sessions, we have the perfect solution for every athlete."
+            label="Services"
+            title="What we offer"
+            description="Performance profiling, 1-1 and small group sessions. All at Advance Guildford."
           />
 
           <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
@@ -205,22 +205,22 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group bg-gray-50 rounded-2xl p-8 lg:p-10 hover:bg-primary hover:shadow-xl transition-all duration-300"
+                className="group bg-card-bg border border-card-border rounded-2xl p-8 lg:p-10 hover:bg-primary hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-primary/10 group-hover:bg-white/20 rounded-2xl flex items-center justify-center mb-8 transition-colors">
+                <div className="w-16 h-16 bg-primary/20 group-hover:bg-white/20 rounded-2xl flex items-center justify-center mb-8 transition-colors">
                   <service.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-white mb-4 transition-colors">
+                <h3 className="text-xl lg:text-2xl font-bold text-foreground group-hover:text-white mb-4 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 group-hover:text-white/80 mb-6 leading-relaxed transition-colors">
+                <p className="text-muted group-hover:text-white/80 mb-6 leading-relaxed transition-colors">
                   {service.description.slice(0, 100)}...
                 </p>
-                <div className="flex items-center justify-between pt-4 border-t border-gray-200 group-hover:border-white/20">
+                <div className="flex items-center justify-between pt-4 border-t border-card-border group-hover:border-white/20">
                   <span className="text-2xl lg:text-3xl font-bold text-primary group-hover:text-white transition-colors">
                     {service.price}
                   </span>
-                  <span className="text-base text-gray-500 group-hover:text-white/70 transition-colors">
+                  <span className="text-base text-muted group-hover:text-white/70 transition-colors">
                     {service.duration}
                   </span>
                 </div>
@@ -236,7 +236,7 @@ export default function ServicesPage() {
           key={service.id}
           id={service.id}
           className={`section-padding ${
-            serviceIndex % 2 === 0 ? "bg-gray-50" : "bg-white"
+            serviceIndex % 2 === 0 ? "bg-background" : "bg-surface"
           }`}
         >
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -252,19 +252,19 @@ export default function ServicesPage() {
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
                   <div>
-                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+                    <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
                       {service.title}
                     </h2>
                     <div className="flex items-center gap-3 mt-2">
                       <span className="text-2xl lg:text-3xl font-bold text-primary">
                         {service.price}
                       </span>
-                      <span className="text-gray-500 text-lg">/ {service.duration}</span>
+                      <span className="text-muted text-lg">/ {service.duration}</span>
                     </div>
                   </div>
                 </div>
 
-                <p className="text-lg lg:text-xl text-gray-600 mb-10 leading-relaxed">
+                <p className="text-lg lg:text-xl text-foreground/80 mb-10 leading-relaxed">
                   {service.description}
                 </p>
 
@@ -272,16 +272,16 @@ export default function ServicesPage() {
                   {service.features.map((feature, index) => (
                     <div
                       key={index}
-                      className="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm"
+                      className="flex items-start gap-4 bg-card-bg border border-card-border rounded-xl p-5"
                     >
-                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
                         <feature.icon className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900 text-base mb-1">
+                        <h4 className="font-semibold text-foreground text-base mb-1">
                           {feature.title}
                         </h4>
-                        <p className="text-sm text-gray-600 leading-relaxed">
+                        <p className="text-sm text-muted leading-relaxed">
                           {feature.description}
                         </p>
                       </div>
@@ -315,13 +315,13 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Benefits Card */}
-                <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
-                  <h4 className="font-bold text-gray-900 text-xl mb-6">Key Benefits</h4>
+                <div className="bg-card-bg border border-card-border rounded-2xl p-8 mt-8">
+                  <h4 className="font-bold text-foreground text-xl mb-6">Key benefits</h4>
                   <ul className="space-y-4">
                     {service.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-start gap-4">
                         <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-600 text-base leading-relaxed">{benefit}</span>
+                        <span className="text-muted text-base leading-relaxed">{benefit}</span>
                       </li>
                     ))}
                   </ul>
@@ -333,7 +333,7 @@ export default function ServicesPage() {
       ))}
 
       {/* Process Section */}
-      <section className="section-padding bg-gray-900 text-white">
+      <section className="section-padding bg-background text-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <SectionHeader
             label="How It Works"

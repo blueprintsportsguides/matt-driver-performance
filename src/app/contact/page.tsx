@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -8,9 +9,6 @@ import {
   MapPin,
   Clock,
   MessageCircle,
-  Instagram,
-  Linkedin,
-  Twitter,
   CheckCircle2,
 } from "lucide-react";
 import Hero from "@/components/Hero";
@@ -58,17 +56,17 @@ export default function ContactPage() {
         imageSrc="/images/matt-stadium.jpeg"
         subtitle="Get In Touch"
         title="Let's Start Your Journey"
-        description="Ready to take your athletic performance to the next level? Get in touch today for a free, no-obligation consultation."
+        description="Free consultation for parents and athletes. Get in touch — I respond within 24 hours."
         showStats={false}
       />
 
       {/* Contact Methods */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <SectionHeader
             label="Contact"
-            title="How to Reach Me"
-            description="Choose your preferred method of contact. I aim to respond to all enquiries within 24 hours."
+            title="How to reach me"
+            description="Free consultation. I aim to respond within 24 hours."
           />
 
           <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
@@ -86,21 +84,21 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group bg-gray-50 rounded-2xl p-8 lg:p-10 hover:bg-primary transition-all duration-300 card-hover text-center"
+                className="group bg-card-bg border border-card-border rounded-2xl p-8 lg:p-10 hover:bg-primary transition-all duration-300 card-hover text-center"
               >
-                <div className="w-20 h-20 bg-primary/10 group-hover:bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors">
+                <div className="w-20 h-20 bg-primary/20 group-hover:bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors">
                   <method.icon className="w-10 h-10 text-primary group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-white mb-3 transition-colors">
+                <h3 className="text-xl lg:text-2xl font-bold text-foreground group-hover:text-white mb-3 transition-colors">
                   {method.title}
                 </h3>
-                <p className="text-gray-600 group-hover:text-white/80 mb-5 text-lg transition-colors">
+                <p className="text-muted group-hover:text-white/80 mb-5 text-lg transition-colors">
                   {method.description}
                 </p>
                 <p className="font-semibold text-primary group-hover:text-white text-lg mb-6 transition-colors">
                   {method.value}
                 </p>
-                <span className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 group-hover:bg-white/20 text-primary group-hover:text-white rounded-full font-semibold text-base transition-colors">
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-primary/20 group-hover:bg-white/20 text-primary group-hover:text-white rounded-full font-semibold text-base transition-colors">
                   {method.action}
                 </span>
               </motion.a>
@@ -110,7 +108,7 @@ export default function ContactPage() {
       </section>
 
       {/* Info Section */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-background">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             {/* Quick Info */}
@@ -119,51 +117,48 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-10">
-                Quick Information
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-10">
+                Quick info
               </h2>
 
               <div className="space-y-8">
                 <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-7 h-7 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 text-lg mb-2">Location</h3>
-                    <p className="text-gray-600 text-lg leading-relaxed">
-                      Based in London, United Kingdom. Sessions available at
-                      various locations including professional training facilities
-                      and local pitches.
+                    <h3 className="font-semibold text-foreground text-lg mb-2">Location</h3>
+                    <p className="text-muted text-lg leading-relaxed">
+                      <strong>Advance Guildford</strong> — main base. Windsor and South East London coming soon. <Link href="/location" className="text-primary font-medium hover:underline">See locations</Link>.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Clock className="w-7 h-7 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 text-lg mb-2">
+                    <h3 className="font-semibold text-foreground text-lg mb-2">
                       Availability
                     </h3>
-                    <p className="text-gray-600 text-lg leading-relaxed">
-                      Flexible scheduling to work around school, training, and
-                      match commitments. Weekday and weekend sessions available.
+                    <p className="text-muted text-lg leading-relaxed">
+                      Flexible scheduling around school and training. Weekday and weekend sessions.
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl p-8">
-                  <h3 className="font-semibold text-gray-900 text-xl mb-6">
-                    Services & Pricing
+                <div className="bg-card-bg border border-card-border rounded-2xl p-8">
+                  <h3 className="font-semibold text-foreground text-xl mb-6">
+                    Services & pricing
                   </h3>
                   <div className="space-y-4">
                     {services.map((service, index) => (
                       <div
                         key={index}
-                        className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0"
+                        className="flex items-center justify-between py-3 border-b border-card-border last:border-0"
                       >
-                        <span className="text-gray-600 text-lg">{service.name}</span>
+                        <span className="text-muted text-lg">{service.name}</span>
                         <span className="font-semibold text-primary text-lg">
                           {service.price}
                         </span>
@@ -181,88 +176,50 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-10">
-                What to Expect
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-10">
+                What to expect
               </h2>
 
-              <div className="bg-white rounded-2xl p-8 lg:p-10 mb-8">
-                <h3 className="font-semibold text-gray-900 text-xl mb-8">
-                  Your Free Consultation
+              <div className="bg-card-bg border border-card-border rounded-2xl p-8 lg:p-10 mb-8">
+                <h3 className="font-semibold text-foreground text-xl mb-8">
+                  Free consultation
                 </h3>
-                <div className="space-y-5">
+                <div className="space-y-4">
                   {[
-                    "A friendly, no-pressure phone call",
-                    "Discussion of your goals and current level",
-                    "Overview of how we can help",
+                    "No-pressure call to discuss goals",
+                    "How we can help your child",
                     "Personalised recommendations",
-                    "Answers to any questions you have",
-                    "No commitment required",
+                    "No commitment",
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-4">
                       <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
-                      <span className="text-gray-600 text-lg">{item}</span>
+                      <span className="text-muted text-lg">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-primary rounded-2xl p-8 lg:p-10 text-white">
-                <h3 className="font-semibold text-xl mb-4">Connect on Social Media</h3>
-                <p className="text-white/80 text-lg mb-8">
-                  Follow for training tips, insights, and updates.
-                </p>
-                <div className="flex gap-5">
-                  <a
-                    href="https://instagram.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center hover:bg-white/30 transition-colors"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="w-7 h-7" />
-                  </a>
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center hover:bg-white/30 transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="w-7 h-7" />
-                  </a>
-                  <a
-                    href="https://twitter.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center hover:bg-white/30 transition-colors"
-                    aria-label="Twitter"
-                  >
-                    <Twitter className="w-7 h-7" />
-                  </a>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Image Section */}
-      <section className="relative h-[500px] md:h-[600px]">
+      {/* Image Section - smaller */}
+      <section className="relative h-[320px] md:h-[380px]">
         <Image
           src="/images/training-facility.jpeg"
           alt="Training facility"
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-10 md:p-20 text-white">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Train Like a Professional
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
+          <div className="max-w-2xl">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              Train at Advance Guildford
             </h2>
-            <p className="text-white/80 text-lg lg:text-xl leading-relaxed">
-              Access the same training methods and facilities used by elite
-              academy athletes. Your journey to peak performance starts here.
+            <p className="text-white/80 text-base lg:text-lg leading-relaxed">
+              Pro-grade facilities. Your child&apos;s journey starts with a free consultation.
             </p>
           </div>
         </div>

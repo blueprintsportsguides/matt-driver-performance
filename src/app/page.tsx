@@ -92,23 +92,9 @@ const whyChooseUs = [
 const testimonials = [
   {
     quote:
-      "Matt's professionalism and expertise have been instrumental in my son's development. The improvement in his speed and confidence has been remarkable.",
-    author: "James T.",
-    role: "Parent of U14 Academy Player",
-    rating: 5,
-  },
-  {
-    quote:
-      "The attention to detail in every session is incredible. Matt understands exactly what young footballers need to reach the next level.",
-    author: "Sarah M.",
-    role: "Parent of U12 Academy Player",
-    rating: 5,
-  },
-  {
-    quote:
-      "Working with Matt has transformed my game. The personalised training helped me secure a scholarship to a top academy.",
-    author: "Ben R.",
-    role: "U16 Academy Player",
+      "I always look forward to sessions with Matt, he is enthusiastic and I feel lucky to have such a supportive coach.",
+    author: "WSL Academy Player",
+    role: "",
     rating: 5,
   },
 ];
@@ -119,55 +105,52 @@ export default function Home() {
       {/* Hero Section */}
       <Hero
         imageSrc="/images/matt-stadium.jpeg"
-        subtitle="Premier League Academy Experience"
-        title="Unlock Your Athletic Potential"
-        description="Elite-level strength and conditioning for youth athletes. Helping the next generation of footballers reach their full potential through evidence-based training methods."
-        primaryCta={{ text: "Start Training", href: "/contact" }}
-        secondaryCta={{ text: "Our Services", href: "/services" }}
+        subtitle="Strength & conditioning for young athletes"
+        title="Unlock Your Child's Potential"
+        description="Elite-level training for youth footballers. Evidence-based, supportive coaching at Advance Guildford. Book a free consultation."
+        primaryCta={{ text: "Book free consultation", href: "/contact" }}
+        secondaryCta={{ text: "Services", href: "/services" }}
       />
 
       {/* Mission Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="order-2 lg:order-1 min-w-0"
             >
-              <span className="inline-block px-5 py-2 rounded-full text-sm font-semibold mb-6 bg-primary/10 text-primary tracking-wide">
-                Our Mission
+              <span className="inline-block px-5 py-2 rounded-full text-sm font-semibold mb-6 bg-primary/20 text-primary tracking-wide">
+                For parents
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-[1.15]">
-                Making Elite Training{" "}
-                <span className="gradient-text">Accessible For All</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 leading-[1.15]">
+                Elite training,{" "}
+                <span className="gradient-text">supportive environment</span>
               </h2>
-              <p className="text-lg lg:text-xl text-gray-600 mb-10 leading-relaxed">
-                To make elite-level strength and conditioning accessible for all
-                youth athletes, fostering long-term athletic development and
-                career success. Every young athlete deserves the opportunity to
-                train like a professional.
+              <p className="text-foreground/80 mb-8 leading-relaxed">
+                Evidence-based strength and conditioning for youth footballers. Personalised plans, injury awareness, and long-term development. Your child trains in a safe, professional setting at Advance Guildford.
               </p>
-              <div className="space-y-5">
+              <ul className="space-y-3 mb-8">
                 {[
-                  "Evidence-based training methods",
-                  "Personalised development plans",
-                  "Long-term athletic growth focus",
-                  "Injury prevention strategies",
+                  "Evidence-based methods",
+                  "Personalised development",
+                  "Injury prevention focus",
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
-                    <span className="text-gray-700 text-lg">{item}</span>
-                  </div>
+                  <li key={index} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-foreground/90">{item}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
               <Link
-                href="/about"
-                className="inline-flex items-center gap-3 mt-10 px-8 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors group"
+                href="/services"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors group shrink-0"
               >
-                Learn More About Me
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span className="whitespace-nowrap">Services & pricing</span>
+                <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
 
@@ -176,24 +159,25 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+              className="relative max-w-md mx-auto lg:mx-0 order-1 lg:order-2"
             >
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative aspect-[4/5] max-h-[320px] sm:max-h-[380px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/coaching-session.jpeg"
                   alt="Matt Driver coaching a young athlete"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 448px) 100vw, 448px"
                 />
               </div>
-              <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-8">
-                <div className="flex items-center gap-5">
-                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Trophy className="w-7 h-7 text-primary" />
+              <div className="mt-4 lg:mt-0 lg:absolute lg:-bottom-4 lg:-left-4 bg-card-bg border border-card-border rounded-xl shadow-lg p-5 w-fit">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center shrink-0">
+                    <Trophy className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-gray-900">100+</div>
-                    <div className="text-base text-gray-600">Athletes Trained</div>
+                    <div className="text-2xl font-bold text-foreground">100+</div>
+                    <div className="text-sm text-muted">Athletes trained</div>
                   </div>
                 </div>
               </div>
@@ -203,15 +187,16 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-background">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <SectionHeader
-            label="What We Offer"
-            title="Services Designed For Success"
-            description="Comprehensive training programmes tailored to develop every aspect of your athletic performance."
+            label="Services"
+            title="What we offer"
+            description="Performance profiling, 1-1 and small group sessions. All at Advance Guildford."
+            light
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {services.map((service, index) => (
               <ServiceCard key={index} {...service} delay={index * 0.1} />
             ))}
@@ -222,84 +207,48 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="text-center mt-16"
+            className="text-center mt-12"
           >
             <Link
-              href="/pricing"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors group"
+              href="/services"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors group"
             >
-              View Pricing
+              Full details & pricing
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="section-padding bg-white">
+      {/* Why Us - concise */}
+      <section className="section-padding bg-surface">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="order-2 lg:order-1"
-            >
-              <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
-                {whyChooseUs.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="bg-gray-50 rounded-2xl p-8"
-                  >
-                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
-                      <item.icon className="w-7 h-7 text-primary" />
-                    </div>
-                    <h3 className="font-semibold text-gray-900 text-lg mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-base text-gray-600 leading-relaxed">{item.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="order-1 lg:order-2"
-            >
-              <span className="inline-block px-5 py-2 rounded-full text-sm font-semibold mb-6 bg-primary/10 text-primary tracking-wide">
-                Why Choose Us
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-[1.15]">
-                Experience That{" "}
-                <span className="gradient-text">Makes The Difference</span>
-              </h2>
-              <p className="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed">
-                With years of experience at the highest level of academy
-                football and world-class education from the UK&apos;s top sports
-                science institutions, I bring unparalleled expertise to every
-                session.
-              </p>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Having coached hundreds of players ranging from U9 to U21, I
-                understand the unique challenges and opportunities that come
-                with developing young athletes. My approach combines
-                cutting-edge sports science with practical, engaging training
-                methods.
-              </p>
-            </motion.div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-10 text-center">
+            Why Matt Driver Performance
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {whyChooseUs.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="bg-card-bg border border-card-border rounded-xl p-6"
+              >
+                <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
+                  <item.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
+                <p className="text-sm text-muted leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Training Facility Section */}
-      <section className="section-padding bg-gray-900 text-white relative overflow-hidden">
+      {/* Location / Facility */}
+      <section className="section-padding bg-background text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
             src="/images/training-facility.jpeg"
@@ -310,60 +259,35 @@ export default function Home() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <SectionHeader
-            label="Training Environment"
-            title="State-of-the-Art Facilities"
-            description="Access to premium performance labs equipped with the latest technology for comprehensive athletic assessment and training."
+            label="Location"
+            title="Advance Guildford"
+            description="Main training base. Pro-grade facilities for profiling and sessions."
             light
           />
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl"
+            className="text-center"
           >
-            <Image
-              src="/images/training-facility.jpeg"
-              alt="Advance Performance Lab - Youth Strength & Conditioning"
-              fill
-              className="object-cover"
-            />
+            <Link
+              href="/location"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-white text-primary font-semibold rounded-xl hover:bg-white/90 transition-colors"
+            >
+              All locations
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </motion.div>
-
-          <div className="grid sm:grid-cols-3 gap-6 lg:gap-8 mt-16">
-            {[
-              { label: "Speed Tracks", value: "Pro-Grade" },
-              { label: "Equipment", value: "Elite Level" },
-              { label: "Technology", value: "State-of-Art" },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center"
-              >
-                <div className="text-2xl lg:text-3xl font-bold text-white mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-white/70 text-base">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <SectionHeader
-            label="Testimonials"
-            title="What Parents & Athletes Say"
-            description="Hear from the families and athletes who have experienced the Matt Driver Performance difference."
-          />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+      {/* Testimonial */}
+      <section className="section-padding bg-surface">
+        <div className="max-w-2xl mx-auto px-6 sm:px-8 lg:px-12">
+          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
+            What athletes say
+          </h2>
+          <div className="flex justify-center">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard key={index} {...testimonial} delay={index * 0.1} />
             ))}
@@ -373,10 +297,10 @@ export default function Home() {
 
       {/* CTA Section */}
       <CTASection
-        title="Ready to Elevate Your Game?"
-        description="Book your free initial consultation today and take the first step towards unlocking your athletic potential."
-        primaryCta={{ text: "Book Free Consultation", href: "/contact" }}
-        secondaryCta={{ text: "Call Now", href: "tel:07938244735" }}
+        title="Ready to get started?"
+        description="Free consultation for parents and athletes. Discuss goals and how we can help."
+        primaryCta={{ text: "Book free consultation", href: "/contact" }}
+        secondaryCta={{ text: "Call 07938 244 735", href: "tel:07938244735" }}
       />
     </>
   );

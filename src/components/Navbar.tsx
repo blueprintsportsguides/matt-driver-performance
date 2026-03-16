@@ -3,14 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Logo from "@/components/Logo";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/pricing", label: "Pricing" },
+  { href: "/location", label: "Location" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -36,32 +36,13 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg"
+          ? "bg-surface/95 backdrop-blur-md shadow-lg border-b border-card-border"
           : "bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex items-center justify-between h-24">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className={`p-2.5 rounded-xl transition-colors ${
-              scrolled ? "bg-primary" : "bg-white/10 backdrop-blur-sm"
-            }`}>
-              <Zap className={`w-6 h-6 ${scrolled ? "text-white" : "text-white"}`} />
-            </div>
-            <div className="flex flex-col">
-              <span className={`font-bold text-lg leading-tight tracking-tight ${
-                scrolled ? "text-gray-900" : "text-white"
-              }`}>
-                Matt Driver
-              </span>
-              <span className={`text-xs font-medium uppercase tracking-wider ${
-                scrolled ? "text-primary" : "text-secondary"
-              }`}>
-                Performance
-              </span>
-            </div>
-          </Link>
+        <div className="flex items-center justify-between h-20">
+          <Logo scrolled={scrolled} />
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2">
@@ -71,12 +52,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-200 ${
                   pathname === link.href
-                    ? scrolled
-                      ? "text-primary bg-primary/10"
-                      : "text-white bg-white/20"
-                    : scrolled
-                    ? "text-gray-600 hover:text-primary hover:bg-gray-100"
-                    : "text-white/80 hover:text-white hover:bg-white/10"
+                    ? "text-primary bg-primary/20"
+                    : "text-white/90 hover:text-white hover:bg-white/10"
                 }`}
               >
                 {link.label}
@@ -84,11 +61,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className={`ml-4 px-7 py-3 rounded-xl font-semibold transition-all duration-200 btn-shine ${
-                scrolled
-                  ? "bg-primary text-white hover:bg-primary-dark"
-                  : "bg-white text-primary hover:bg-gray-100"
-              }`}
+              className="ml-4 px-7 py-3 rounded-xl font-semibold transition-all duration-200 btn-shine bg-primary text-white hover:bg-primary-dark"
             >
               Book Now
             </Link>
@@ -97,11 +70,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${
-              scrolled
-                ? "text-gray-900 hover:bg-gray-100"
-                : "text-white hover:bg-white/10"
-            }`}
+            className="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -117,7 +86,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden bg-white border-t shadow-lg"
+            className="lg:hidden bg-surface border-t border-card-border shadow-lg"
           >
             <div className="px-6 py-8 space-y-3">
               {navLinks.map((link) => (
@@ -126,8 +95,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`block px-5 py-4 rounded-xl font-medium text-lg transition-colors ${
                     pathname === link.href
-                      ? "text-primary bg-primary/10"
-                      : "text-gray-600 hover:text-primary hover:bg-gray-50"
+                      ? "text-primary bg-primary/20"
+                      : "text-white/80 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   {link.label}

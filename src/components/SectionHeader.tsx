@@ -30,7 +30,7 @@ export default function SectionHeader({
           className={`inline-block px-5 py-2 rounded-full text-sm font-semibold mb-6 tracking-wide ${
             light
               ? "bg-white/10 text-white/90"
-              : "bg-primary/10 text-primary"
+              : "bg-primary/20 text-primary"
           }`}
         >
           {label}
@@ -38,7 +38,7 @@ export default function SectionHeader({
       )}
       <h2
         className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-[1.15] ${
-          light ? "text-white" : "text-gray-900"
+          light ? "text-white" : "text-foreground"
         }`}
       >
         {title}
@@ -46,7 +46,7 @@ export default function SectionHeader({
       {description && (
         <p
           className={`text-lg lg:text-xl leading-relaxed max-w-2xl ${centered ? "mx-auto" : ""} ${
-            light ? "text-white/80" : "text-gray-600"
+            light ? "text-white/80" : "text-muted"
           }`}
         >
           {description}

@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   description: "Elite-level strength and conditioning for youth athletes. Performance profiling, 1-1 training, and small group sessions from a Premier League academy coach.",
   keywords: ["football coaching", "strength and conditioning", "youth athletes", "performance training", "Chelsea FC", "athletic development"],
   authors: [{ name: "Matt Driver" }],
+  icons: {
+    icon: "/logo-icon.png",
+    apple: "/logo-icon.png",
+  },
   openGraph: {
     title: "Matt Driver Performance | Elite Youth Football Strength & Conditioning",
     description: "Elite-level strength and conditioning for youth athletes from a Premier League academy coach.",
@@ -27,11 +31,6 @@ export const metadata: Metadata = {
     siteName: "Matt Driver Performance",
     locale: "en_GB",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Matt Driver Performance",
-    description: "Elite-level strength and conditioning for youth athletes.",
   },
   robots: {
     index: true,
@@ -47,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${montserrat.variable} antialiased font-sans`}
+        className={`${inter.variable} ${montserrat.variable} antialiased font-sans overflow-x-hidden`}
       >
         <Navbar />
         <main>{children}</main>

@@ -52,7 +52,6 @@ const timeline = [
 const credentials = [
   "BSc Sport and Exercise Science - Loughborough University",
   "MSc Strength and Conditioning - St Mary's University",
-  "UKSCA Accredited Strength and Conditioning Coach",
   "FA Level 2 Football Coaching Qualification",
   "First Aid and Safeguarding Certified",
 ];
@@ -78,7 +77,7 @@ export default function AboutPage() {
       />
 
       {/* Introduction Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <motion.div
@@ -86,14 +85,15 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative"
+              className="relative max-w-sm"
             >
-              <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative aspect-[3/4] max-h-[320px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/matt-graduation.jpeg"
                   alt="Matt Driver - Graduation from Loughborough University"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 448px) 100vw, 384px"
                 />
               </div>
               <div className="absolute -bottom-8 -right-8 bg-primary text-white rounded-2xl shadow-xl p-8">
@@ -113,19 +113,19 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <span className="inline-block px-5 py-2 rounded-full text-sm font-semibold mb-6 bg-primary/10 text-primary tracking-wide">
+              <span className="inline-block px-5 py-2 rounded-full text-sm font-semibold mb-6 bg-primary/20 text-primary tracking-wide">
                 My Story
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-[1.15]">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-8 leading-[1.15]">
                 Built on <span className="gradient-text">Education & Experience</span>
               </h2>
-              <p className="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg lg:text-xl text-foreground/80 mb-8 leading-relaxed">
                 I have multiple years of experience working at the highest level
                 of academy football, coaching hundreds of players ranging from U9
                 to U21. My journey in sports science began at Loughborough
                 University, one of the UK&apos;s most prestigious sports institutions.
               </p>
-              <p className="text-gray-600 text-lg mb-10 leading-relaxed">
+              <p className="text-foreground/80 text-lg mb-10 leading-relaxed">
                 I furthered my expertise with a Master&apos;s degree from St Mary&apos;s
                 University, Twickenham, specialising in Strength and Conditioning.
                 This combination of elite education and hands-on Premier League
@@ -136,7 +136,7 @@ export default function AboutPage() {
                 {credentials.slice(0, 3).map((credential, index) => (
                   <div key={index} className="flex items-center gap-4">
                     <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
-                    <span className="text-gray-700 text-lg">{credential}</span>
+                    <span className="text-foreground/90 text-lg">{credential}</span>
                   </div>
                 ))}
               </div>
@@ -146,7 +146,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 lg:py-24 bg-gray-50">
+      <section className="py-20 lg:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {stats.map((stat, index) => (
@@ -156,15 +156,15 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 text-center shadow-sm"
+                className="bg-card-bg border border-card-border rounded-2xl p-8 text-center"
               >
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-6">
                   <stat.icon className="w-7 h-7 text-primary" />
                 </div>
-                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                <div className="text-3xl lg:text-4xl font-bold text-foreground mb-2">
                   {stat.value}
                 </div>
-                <div className="text-base text-gray-600">{stat.label}</div>
+                <div className="text-base text-muted">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -172,7 +172,7 @@ export default function AboutPage() {
       </section>
 
       {/* Journey Timeline */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
           <SectionHeader
             label="My Journey"
@@ -182,7 +182,7 @@ export default function AboutPage() {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-10 top-0 bottom-0 w-0.5 bg-gray-200 hidden md:block" />
+            <div className="absolute left-10 top-0 bottom-0 w-0.5 bg-card-border hidden md:block" />
 
             <div className="space-y-10 lg:space-y-12">
               {timeline.map((item, index) => (
@@ -197,14 +197,14 @@ export default function AboutPage() {
                   <div className="relative z-10 w-20 h-20 bg-primary rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
                     <item.icon className="w-9 h-9 text-white" />
                   </div>
-                  <div className="flex-1 bg-gray-50 rounded-2xl p-8">
-                    <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+                  <div className="flex-1 bg-card-bg border border-card-border rounded-2xl p-8">
+                    <span className="inline-block px-4 py-1.5 bg-primary/20 text-primary text-sm font-semibold rounded-full mb-4">
                       {item.year}
                     </span>
-                    <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-3">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 text-lg leading-relaxed">{item.description}</p>
+                    <p className="text-foreground/80 text-lg leading-relaxed">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -214,7 +214,7 @@ export default function AboutPage() {
       </section>
 
       {/* Philosophy Section */}
-      <section className="section-padding bg-gray-900 text-white relative overflow-hidden">
+      <section className="section-padding bg-background text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image
             src="/images/matt-stadium.jpeg"
@@ -261,13 +261,14 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="relative aspect-square rounded-3xl overflow-hidden"
+              className="relative aspect-square max-h-[280px] rounded-2xl overflow-hidden"
             >
               <Image
                 src="/images/matt-stadium.jpeg"
                 alt="Matt at Stamford Bridge"
                 fill
                 className="object-cover"
+                sizes="(max-width: 400px) 100vw, 400px"
               />
             </motion.div>
           </div>
@@ -275,28 +276,28 @@ export default function AboutPage() {
       </section>
 
       {/* Credentials Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
           <SectionHeader
             label="Qualifications"
             title="Professional Credentials"
-            description="Fully qualified and accredited to deliver the highest standard of athletic development."
+            description="Qualified to deliver evidence-based athletic development."
           />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gray-50 rounded-3xl p-8 lg:p-10"
+            className="bg-card-bg border border-card-border rounded-3xl p-8 lg:p-10"
           >
             <div className="grid sm:grid-cols-2 gap-5">
               {credentials.map((credential, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-4 bg-white rounded-xl p-6"
+                  className="flex items-start gap-4 bg-background rounded-xl p-6 border border-card-border"
                 >
                   <Award className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-lg">{credential}</span>
+                  <span className="text-foreground/90 text-lg">{credential}</span>
                 </div>
               ))}
             </div>

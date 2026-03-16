@@ -24,7 +24,7 @@ export default function TestimonialCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className="bg-white rounded-2xl p-8 lg:p-10 shadow-sm border border-gray-100 relative"
+      className="bg-card-bg border border-card-border rounded-2xl p-8 lg:p-10 relative"
     >
       <Quote className="absolute top-8 right-8 w-12 h-12 text-primary/10" />
 
@@ -34,11 +34,11 @@ export default function TestimonialCard({
         ))}
       </div>
 
-      <p className="text-gray-700 text-lg leading-relaxed mb-8 italic">&quot;{quote}&quot;</p>
+      <p className="text-foreground/90 text-lg leading-relaxed mb-6 italic">&quot;{quote}&quot;</p>
 
       <div>
-        <div className="font-semibold text-gray-900 text-lg">{author}</div>
-        <div className="text-base text-gray-500 mt-1">{role}</div>
+        <div className="font-semibold text-foreground text-lg">{author}</div>
+        {role && <div className="text-sm text-muted mt-1">{role}</div>}
       </div>
     </motion.div>
   );
