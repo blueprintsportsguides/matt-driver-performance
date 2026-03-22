@@ -75,12 +75,12 @@ npm start
 
 The project is set up for Vercel:
 
-1. Push to your GitHub repository and connect the repo in [Vercel](https://vercel.com).
-2. **Root directory**: use the repository root (this folder). Do not point at a parent folder that has no `package.json`.
-3. **Build command**: leave default (`next build`) or use `npm run build`. If your project is set to `npm run vercel-build`, that script is provided and runs `next build`.
-4. Deployments run on each push.
+1. Connect this GitHub repo in [Vercel](https://vercel.com).
+2. **Root Directory** (Project → Settings → General): leave **empty** (repository root). The Next.js app must be at the repo root so `.next` is created where Vercel expects it.
+3. **Build Command** (Settings → General): leave **default** or use `next build`. Do **not** use a script that runs `npm run build --prefix matt-driver-performance` unless Root Directory is set to that folder — that puts `.next` in the wrong place and causes `routes-manifest.json` errors.
+4. `vercel.json` sets `"buildCommand": "next build"` so production builds always run at the project root.
 
-**CLI:** Run `npx vercel --prod` from **inside** `matt-driver-performance` (not from a parent folder), or use the parent `Matt/package.json` wrapper if you keep the Vercel link on the parent folder.
+**CLI:** Run `npx vercel --prod` from **this** directory (`matt-driver-performance`), not from a parent folder.
 
 **`vercel.json`** config includes:
 
