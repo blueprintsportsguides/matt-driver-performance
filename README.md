@@ -76,8 +76,11 @@ npm start
 The project is set up for Vercel:
 
 1. Push to your GitHub repository and connect the repo in [Vercel](https://vercel.com).
-2. Vercel will detect Next.js and use the existing config.
-3. Deployments run on each push; `npm run build` is used automatically.
+2. **Root directory**: use the repository root (this folder). Do not point at a parent folder that has no `package.json`.
+3. **Build command**: leave default (`next build`) or use `npm run build`. If your project is set to `npm run vercel-build`, that script is provided and runs `next build`.
+4. Deployments run on each push.
+
+**CLI:** Run `npx vercel --prod` from **inside** `matt-driver-performance` (not from a parent folder), or use the parent `Matt/package.json` wrapper if you keep the Vercel link on the parent folder.
 
 **`vercel.json`** config includes:
 
